@@ -1,0 +1,14 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublierCommandesDansLaFile",
+      "Effect": "Allow",
+      "Action": ["sqs:SendMessage", "sqs:GetQueueUrl"],
+      "Resource": "arn:aws:sqs:eu-west-3:123456789012:flashticket-orders",
+      "Condition": {
+        "Bool": { "aws:SecureTransport": "true" }
+      }
+    }
+  ]
+}
