@@ -1,0 +1,30 @@
+[Unit]
+Description=FlashTicket ticketpdf
+After=network-online.target
+
+[Service]
+User=ticketpdf
+Group=ticketpdf
+ExecStart=/opt/ticketpdf/bin/ticketpdf
+Restart=always
+RestartSec=2
+ProtectSystem=strict
+ReadWritePaths=/var/lib/ticketpdf
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectProc=invisible
+NoNewPrivileges=true
+CapabilityBoundingSet=
+RestrictSUIDSGID=true
+SystemCallFilter=@system-service
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=true
+MemoryDenyWriteExecute=true
+
+[Install]
+WantedBy=multi-user.target
